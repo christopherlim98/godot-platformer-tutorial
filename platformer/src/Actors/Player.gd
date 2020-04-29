@@ -7,8 +7,9 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 
 
 
-func _on_EnemyDetector_body_entered(body: PhysicsBody2D):
-	queue_free()
+func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
+	die()
+
 
 func _physics_process(delta) -> void:
 	var is_jump_interrupted:= Input.is_action_just_released("jump") and _velocity.y < 0.0
@@ -45,3 +46,6 @@ func calculate_stomp_velocity(
 	out.y = -impulse
 	return out
 
+func die() -> void:
+	PlayerData.deaths += 1
+	queue_free()

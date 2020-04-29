@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/background.png" type="Texture" id=1]
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=4]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=5]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=7]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.2298
+margin_top = 0.759521
+margin_right = -1.22974
+margin_bottom = 0.759521
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="." instance=ExtResource( 3 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -674.73
+margin_top = -247.157
+margin_right = 672.27
+margin_bottom = -130.157
+text = "Congratulations! You have died! Try harder next time :)
+"
+
+[node name="Text" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.23
+margin_top = -179.309
+margin_right = 134.77
+margin_bottom = -114.309
+text = "Your final score is %s
+You died %s times"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.23
+margin_top = -75.7405
+margin_right = 197.77
+margin_bottom = 77.2595
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="menu" instance=ExtResource( 2 )]
+margin_right = 398.0
+margin_bottom = 74.0
+text = "Play Again"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="menu" instance=ExtResource( 7 )]
+margin_top = 78.0
+margin_right = 398.0
+margin_bottom = 153.0
